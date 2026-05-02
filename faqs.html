@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs – MJRV Gas Station</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="facebook-domain-verification" content="gmferyibo67sy2d98g30a93g6tsqn9" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0B3D91;
+            --primary-dark: #072a66;
+            --accent: #D62828;
+            --accent-hover: #b51f1f;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ───── NAVIGATION (same as main site) ───── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+        .navbar.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            font-weight: 800;
+        }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        .logo-text span {
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-home-btn {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 24px !important;
+            border-radius: 100px;
+            font-weight: 600 !important;
+        }
+        .nav-home-btn:hover {
+            background: var(--accent-hover) !important;
+        }
+        .nav-home-btn::after {
+            display: none !important;
+        }
+
+        /* ───── MAIN CONTENT ───── */
+        .faq-container {
+            max-width: 800px;
+            margin: 120px auto 80px;
+            padding: 0 24px;
+        }
+        .faq-container h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .faq-subtitle {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+            transition: var(--transition);
+        }
+        .faq-item:hover {
+            border-color: var(--gray-300);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+            line-height: 1.5;
+            transition: color var(--transition);
+        }
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        .faq-question .icon {
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+            font-weight: 700;
+        }
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: var(--gray-50);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* enough for answer content */
+        }
+        .faq-answer p {
+            padding: 0 24px 20px;
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ───── FOOTER (identical to main site) ───── */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 48px 24px 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            max-width: 1200px;
+            margin: 0 auto 32px;
+        }
+        .footer-brand .logo-text {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: 800;
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-col a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .faq-container h1 { font-size: 2rem; }
+            .faq-question { padding: 18px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (identical to index) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">MJRV <span>Gas</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#prices">Prices</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" class="nav-home-btn">← Back to Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- FAQ Content -->
+    <main class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <p class="faq-subtitle">Got questions? We've got answers. If you don't find what you're looking for, feel free to reach out.</p>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What are your operating hours?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We are open <strong>12 hours a day, 7 days a week</strong> — from 6:00 AM to 6:00 PM. Rain or shine, you can count on us to serve you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Where exactly is MJRV Gas Station located?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We're at <strong>Sitio Tagaytay, San Juan - Aringay Rd, Aringay, 2503 La Union</strong>. You can easily navigate to us via 
+                    <a href="https://maps.app.goo.gl/nmn1YYW45D89KfTP7" target="_blank">Google Maps</a>, 
+                    <a href="https://maps.apple/p/PZ9M0oNX9~IhuC" target="_blank">Apple Maps</a>, or 
+                    <a href="https://ul.waze.com/ul?place=ChIJVxBhppCdkTMRgtCDLQZ07IE&ll=16.40334370%2C120.38384920&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank">Waze</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How much does fuel cost?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Our fuel prices are updated regularly and shown on the <a href="index.html#prices">Fuel Prices</a> section of our website. Prices may vary depending on market conditions. You can click "Update Prices" to see the latest rates.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What types of fuel do you offer?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We offer <strong>Regular</strong>, <strong>Premium</strong>, and <strong>Diesel</strong> — all honestly measured and quality assured.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do you have a convenience store or other amenities?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! We provide a <strong>Motor Freshen‑Up</strong> wash, <strong>24/7 Smart Parking</strong> monitored by cameras, and a cozy <strong>View Deck</strong> where you can relax and enjoy the scenery. While we don't have a full convenience store yet, we have basic necessities and a welcoming atmosphere.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can I pay using GCash, Maya, or other e‑wallets?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Currently we accept <strong>cash payments only</strong>. We're working on integrating electronic payments in the future. Stay tuned!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Is the parking area safe for overnight stays?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Our 24/7 smart parking is monitored by integrated cameras with automated detection. Your vehicle is secured whether you stop for a few minutes or stay overnight.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How can I get in touch with you?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You can message us directly via <a href="https://www.facebook.com/messages/t/616995538156566" target="_blank">Messenger</a>, visit our <a href="https://www.facebook.com/MJRVGasStation/" target="_blank">Facebook Page</a>, or use the <a href="index.html#contact">Contact form</a> on our website. We're happy to help!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Is the fuel quality guaranteed?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. All our fuel products meet and exceed Department of Energy (DOE) standards. We pride ourselves on honest, high‑quality fuel — <em>pudno a serbisyo</em>.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (identical to main site) -->
+    <footer class="footer">
+        <div class="footer-grid" style="max-width:1200px; margin-left:auto; margin-right:auto;">
+            <div class="footer-brand">
+                <span class="logo-text">MJRV <span style="color: var(--accent);">Gas</span></span>
+                <p>Your trusted fuel partner on every Filipino journey. Quality fuel, honest prices, and friendly service — 12 hours a day, 7 days a week.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/MJRVGasStation" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#prices">Fuel Prices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" style="max-width:1200px; margin-left:auto; margin-right:auto;">
+            <p>© 2026 MJRV Gas Station. All rights reserved.</p>
+            <p>"Lakbay Sigurado. Gasolina Garantisado."</p>
+        </div>
+    </footer>
+
+    <!-- Simple accordion script -->
+    <script>
+        // Navbar shadow on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const questionBtn = item.querySelector('.faq-question');
+            questionBtn.addEventListener('click', () => {
+                // Close others (optional – uncomment for accordion behavior)
+                // faqItems.forEach(i => {
+                //   if (i !== item) i.classList.remove('active');
+                // });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy – MJRV Gas Station</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="facebook-domain-verification" content="gmferyibo67sy2d98g30a93g6tsqn9" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0B3D91;
+            --primary-dark: #072a66;
+            --accent: #D62828;
+            --accent-hover: #b51f1f;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ───── NAVIGATION (sticky, same as main site) ───── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: var(--transition);
+        }
+        .navbar.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            font-weight: 800;
+        }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        .logo-text span {
+            color: var(--accent);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-home-btn {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 24px !important;
+            border-radius: 100px;
+            font-weight: 600 !important;
+        }
+        .nav-home-btn:hover {
+            background: var(--accent-hover) !important;
+        }
+        .nav-home-btn::after {
+            display: none !important;
+        }
+
+        /* ───── MAIN CONTENT ───── */
+        .policy-container {
+            max-width: 800px;
+            margin: 120px auto 80px;  /* offset for fixed navbar */
+            padding: 0 24px;
+        }
+        .policy-container h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .policy-container .last-updated {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-bottom: 32px;
+        }
+        .policy-container h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+        .policy-container p, .policy-container ul {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        .policy-container ul {
+            padding-left: 24px;
+        }
+        .policy-container li {
+            margin-bottom: 8px;
+        }
+        .policy-container a {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .policy-container a:hover {
+            color: var(--accent);
+        }
+
+        /* ───── FOOTER (same as main site) ───── */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 48px 24px 32px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            max-width: 1200px;
+            margin: 0 auto 32px;
+        }
+        .footer-brand .logo-text {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: 800;
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-col a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }  /* simplified – no mobile menu needed for policy page, but could add if wanted */
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .policy-container h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (identical to index) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">M</div>
+                <div class="logo-text">MJRV <span>Gas</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#prices">Prices</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" class="nav-home-btn">← Back to Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Policy Content -->
+    <main class="policy-container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: May 3, 2026</p>
+
+        <p>At <strong>MJRV Gas Station</strong>, your privacy is a priority. This Privacy Policy outlines how we collect, use, and protect any personal information you provide when visiting our website or contacting us through our online forms.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We may collect the following types of personal information when you voluntarily submit it through our contact form or Messenger:</p>
+        <ul>
+            <li><strong>Name</strong> – to address you properly</li>
+            <li><strong>Email address</strong> – to respond to your inquiries</li>
+            <li><strong>Message content</strong> – to understand and assist you better</li>
+        </ul>
+        <p>We do not collect sensitive payment or financial data through this website. Fuel transactions are processed on‑site at our physical station.</p>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information you provide solely for the following purposes:</p>
+        <ul>
+            <li>Responding to your messages, questions, or service requests</li>
+            <li>Improving our customer service based on feedback</li>
+            <li>Internal record keeping (messages may be archived for quality assurance)</li>
+        </ul>
+        <p>We will never sell, distribute, or lease your personal information to third parties unless we are required by law to do so.</p>
+
+        <h2>3. Data Security</h2>
+        <p>We are committed to ensuring that your information is secure. Although communication via the internet is not 100% guaranteed, we implement appropriate technical and organizational measures to safeguard your data.</p>
+
+        <h2>4. Third-Party Links</h2>
+        <p>Our website may contain links to external platforms like Google Maps, Apple Maps, Waze, and Facebook Messenger. Once you leave our site, we do not have control over the privacy practices of those third-party services. Please review their respective privacy policies.</p>
+
+        <h2>5. Cookies & Tracking</h2>
+        <p>Our main website (index.html) does not use persistent cookies or tracking scripts. However, temporary session storage may be used for functional purposes (such as displaying fuel prices). No personal data is stored or tracked beyond your immediate visit.</p>
+
+        <h2>6. Your Rights</h2>
+        <p>You may request details of the personal information we hold about you, or ask us to delete any messages you previously sent by contacting us through our Facebook page or Messenger. We will respond within a reasonable timeframe.</p>
+
+        <h2>7. Contacting Us</h2>
+        <p>If you have any questions regarding this privacy policy, please reach out:</p>
+        <p>
+            📍 <strong>Address:</strong> Sitio Tagaytay, San Juan - Aringay Rd, Aringay, 2503 La Union<br>
+            💬 <strong>Messenger:</strong> <a href="https://www.facebook.com/messages/t/616995538156566" target="_blank">Chat with us</a><br>
+            📘 <strong>Facebook:</strong> <a href="https://www.facebook.com/MJRVGasStation/" target="_blank">MJRV Gas Station</a>
+        </p>
+
+        <h2>8. Policy Updates</h2>
+        <p>We may update this policy from time to time. The latest version will always be available on this page. Please check back occasionally for any changes.</p>
+
+        <p><em>“Lakbay Sigurado. Gasolina Garantisado.” – MJRV</em></p>
+    </main>
+
+    <!-- Footer (identical to index) -->
+    <footer class="footer">
+        <div class="footer-grid" style="max-width:1200px; margin-left:auto; margin-right:auto;">
+            <div class="footer-brand">
+                <span class="logo-text">MJRV <span style="color: var(--accent);">Gas</span></span>
+                <p>Your trusted fuel partner on every Filipino journey. Quality fuel, honest prices, and friendly service — 12 hours a day, 7 days a week.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/MJRVGasStation" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#prices">Fuel Prices</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" style="max-width:1200px; margin-left:auto; margin-right:auto;">
+            <p>© 2026 MJRV Gas Station. All rights reserved.</p>
+            <p>"Lakbay Sigurado. Gasolina Garantisado."</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll shadow for navbar (same as main site)
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

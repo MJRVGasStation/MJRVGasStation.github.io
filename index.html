@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MJRV Gas Station — Lakbay Sigurado. Gasolina Garantisado.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="facebook-domain-verification" content="gmferyibo67sy2d98g30a93g6tsqn9" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -204,6 +205,34 @@
             opacity: 0.03;
             background-image: 
                 repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
+        }
+
+        /* ───── HERO PARTICLES (FLOATING DOTS) ───── */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .hero-particles span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: floatUp 7s infinite ease-in;
+        }
+        .hero-particles span:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 8s; }
+        .hero-particles span:nth-child(2) { left: 25%; animation-delay: 1.5s; animation-duration: 6.5s; }
+        .hero-particles span:nth-child(3) { left: 40%; animation-delay: 3s; animation-duration: 9s; }
+        .hero-particles span:nth-child(4) { left: 55%; animation-delay: 0.8s; animation-duration: 7.2s; }
+        .hero-particles span:nth-child(5) { left: 70%; animation-delay: 2.2s; animation-duration: 8.5s; }
+        .hero-particles span:nth-child(6) { left: 85%; animation-delay: 4s; animation-duration: 6s; }
+        @keyframes floatUp {
+            0%   { transform: translateY(105vh) scale(0); opacity: 0; }
+            15%  { opacity: 1; }
+            40%  { transform: translateY(40vh) scale(1.4); opacity: 0.7; }
+            100% { transform: translateY(-10vh) scale(0.2); opacity: 0; }
         }
 
         .hero-content {
@@ -445,7 +474,7 @@
         /* --- Carousel Styles (integrated) --- */
         .about-visual-carousel {
             position: relative;
-            min-height: 360px; /* Give enough height for the card + accent offset */
+            min-height: 360px;
         }
 
         .about-visual-carousel .about-visual {
@@ -460,13 +489,12 @@
 
         .about-visual-carousel .about-visual.active {
             opacity: 1;
-            position: relative; /* keeps flow so the carousel container expands to fit */
+            position: relative;
             pointer-events: auto;
         }
 
-        /* Original about-visual styles kept for the cards */
         .about-visual {
-            position: relative; /* for positioning the accent */
+            position: relative;
         }
 
         .about-visual-main {
@@ -975,26 +1003,17 @@
 
         /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
         @keyframes countUp {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1026,11 +1045,9 @@
             gap: 8px;
             animation: slideDown 0.3s ease-out;
         }
-
         .mobile-menu.active {
             display: flex;
         }
-
         .mobile-menu a {
             padding: 16px 20px;
             text-decoration: none;
@@ -1040,12 +1057,10 @@
             border-radius: var(--radius);
             transition: var(--transition);
         }
-
         .mobile-menu a:hover {
             background: var(--gray-100);
             color: var(--primary);
         }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1058,67 +1073,28 @@
                 grid-template-columns: 1fr;
                 gap: 48px;
             }
-
             .about-visual {
                 max-width: 500px;
                 margin: 0 auto;
             }
-
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .about-visual-accent {
-                width: 100px;
-                height: 100px;
-                font-size: 2rem;
-                bottom: -16px;
-                right: -16px;
-            }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero-stats { flex-direction: column; gap: 24px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .about-visual-accent { width: 100px; height: 100px; font-size: 2rem; bottom: -16px; right: -16px; }
         }
-
         @media (max-width: 480px) {
-            section {
-                padding: 64px 16px;
-            }
-
-            .hero {
-                padding: 100px 16px 60px;
-            }
-
+            section { padding: 64px 16px; }
+            .hero { padding: 100px 16px 60px; }
             .service-card,
-            .contact-form {
-                padding: 28px 20px;
-            }
-
-            .contact-form {
-                padding: 28px 20px;
-            }
+            .contact-form { padding: 28px 20px; }
+            .contact-form { padding: 28px 20px; }
         }
 
         /* ===== TOAST NOTIFICATION ===== */
@@ -1137,12 +1113,10 @@
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         .toast.show {
             transform: translateY(0);
             opacity: 1;
         }
-
         .toast.success {
             background: #22c55e;
         }
@@ -1183,6 +1157,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-pattern"></div>
+        <!-- FLOATING PARTICLES ADDED HERE -->
+        <div class="hero-particles">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="dot"></span>
@@ -1201,11 +1180,11 @@
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">2,500+</div>
-                    <div class="stat-label">Happier Engines(and Drivers!)</div>
+                    <div class="stat-label">Happier Engines (and Drivers!)</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">6AM–6PM</div>
-                    <div class="stat-label"> Rain or Shine, Bukas Para Sa Iyo</div>
+                    <div class="stat-label">Rain or Shine, Bukas Para Sa Iyo</div>
                 </div>
             </div>
         </div>
@@ -1219,36 +1198,35 @@
                 <h2 class="section-title">Our Premium Services</h2>
                 <p class="section-subtitle">Everything you need for a safe and comfortable journey, all in one stop.</p>
             </div>
-				<div class="services-grid">
-					<div class="service-card reveal">
-						<div class="service-icon">⛽</div>
-						<h3>Fuel Services</h3>
-						<p>Quality fuel, honestly measured — every drop <em>pudno</em>. Regular, Premium, and Diesel for as low as ₱10. No long trips to town, just <em>malasakit</em> at every fill.</p>
-					</div>
-					<div class="service-card reveal">
-						<div class="service-icon">🧽</div>
-						<h3>Motor Freshen‑Up</h3>
-						<p>Quick water wash to wake up your engine. A good scrub, a quick rinse, and your motor is ready to <strong>brrr brrr</strong> again — looking fresh for the road ahead.</p>
-					</div>
-					<div class="service-card reveal">
-						<div class="service-icon">🅿️</div>
-						<h3>24/7 Smart Parking</h3>
-						<p>Secured parking monitored by smart integrated cameras. Automated detection and logging keep your vehicle safe, so you can rest easy — whether it’s a quick stop or an overnight stay.</p>
-					</div>
-					<div class="service-card reveal">
-						<div class="service-icon">🌄</div>
-						<h3>View Deck Ambiance</h3>
-						<p>A cozy, windy spot to sip a drink and soak in the scenery. Take a breather, feel the breeze, and enjoy the view before you hit the road again. <em>Brekta ditoy, presko.</em></p>
-					</div>
-				</div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">⛽</div>
+                    <h3>Fuel Services</h3>
+                    <p>Quality fuel, honestly measured — every drop <em>pudno</em>. Regular, Premium, and Diesel for as low as ₱10. No long trips to town, just <em>malasakit</em> at every fill.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">🧽</div>
+                    <h3>Motor Freshen‑Up</h3>
+                    <p>Quick water wash to wake up your engine. A good scrub, a quick rinse, and your motor is ready to <strong>brrr brrr</strong> again — looking fresh for the road ahead.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">🅿️</div>
+                    <h3>24/7 Smart Parking</h3>
+                    <p>Secured parking monitored by smart integrated cameras. Automated detection and logging keep your vehicle safe, so you can rest easy — whether it’s a quick stop or an overnight stay.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">🌄</div>
+                    <h3>View Deck Ambiance</h3>
+                    <p>A cozy, windy spot to sip a drink and soak in the scenery. Take a breather, feel the breeze, and enjoy the view before you hit the road again. <em>Brekta ditoy, presko.</em></p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- About Section (ROTATING CAROUSEL INTEGRATED) -->
+    <!-- About Section (ROTATING CAROUSEL) -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
-                <!-- REPLACED BLOCK: rotating carousel -->
                 <div class="about-visual-carousel reveal">
                     <div class="about-visual active">
                         <div class="about-visual-main">⛽</div>
@@ -1275,13 +1253,11 @@
                         <div class="about-visual-accent">🇵🇭</div>
                     </div>
                 </div>
-                <!-- END REPLACED BLOCK -->
-
                 <div class="about-content reveal">
                     <div class="section-label">About Us</div>
                     <h2>Your Trusted Partner<br>on Every Journey</h2>
                     <p>MJRV Gas Station opened on March 16, 2025, with one mission: to end the long "mapan jay ili" — the tiring trip to town just to fuel your motor. Now you can fill up right here, for as low as ₱10, with honestly measured liters and a smile. We earn just a tiny profit because we believe no one gets left behind when we help each other. Alone, you can go far. Together, we go farther — without leaving your neighborhood.
-							— MJRV, fuel with heart, not with markup.</p>
+                        — MJRV, fuel with heart, not with markup.</p>
                     <ul class="why-list">
                         <li>
                             <div class="check">✓</div>
@@ -1380,76 +1356,74 @@
         </div>
     </section>
 
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-label">Get In Touch</div>
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Have questions or feedback? We'd love to hear from you.</p>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info reveal">
-                <h3>Visit or Reach Out</h3>
-									
-					<div class="contact-item">
-						<div class="contact-item-icon">📍</div>
-						<div>
-							<h4>Address</h4>
-							<p>Sitio Tagaytay, San Juan - Aringay Rd, Aringay, 2503 La Union</p>
-							<p>
-								<a href="https://maps.app.goo.gl/nmn1YYW45D89KfTP7" target="_blank" rel="noopener">Google Maps</a>
-								&nbsp;·&nbsp;
-								<a href="https://maps.apple/p/PZ9M0oNX9~IhuC" target="_blank" rel="noopener">Apple Maps</a>
-								&nbsp;·&nbsp;
-								<a href="https://ul.waze.com/ul?place=ChIJVxBhppCdkTMRgtCDLQZ07IE&ll=16.40334370%2C120.38384920&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener">Waze</a>
-							</p>
-						</div>
-					</div>
-					
-                <div class="contact-item">
-                    <div class="contact-item-icon">💬</div>
-                    <div>
-                        <h4>Messenger</h4>
-                        <p><a href="https://www.facebook.com/messages/t/616995538156566" target="_blank">Chat with us on Messenger</a></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">📘</div>
-                    <div>
-                        <h4>Facebook Page</h4>
-                        <p><a href="https://www.facebook.com/MJRVGasStation/" target="_blank">MJRV Gas Station</a></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">🕐</div>
-                    <div>
-                        <h4>Operating Hours</h4>
-                        <p>Open 12 hours a day, 7 days a week — <em>Pudno nga agserbi.</em></p>
-                    </div>
-                </div>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Have questions or feedback? We'd love to hear from you.</p>
             </div>
-            <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
-                <h3>Send a Message</h3>
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Visit or Reach Out</h3>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Sitio Tagaytay, San Juan - Aringay Rd, Aringay, 2503 La Union</p>
+                            <p>
+                                <a href="https://maps.app.goo.gl/nmn1YYW45D89KfTP7" target="_blank" rel="noopener">Google Maps</a>
+                                &nbsp;·&nbsp;
+                                <a href="https://maps.apple/p/PZ9M0oNX9~IhuC" target="_blank" rel="noopener">Apple Maps</a>
+                                &nbsp;·&nbsp;
+                                <a href="https://ul.waze.com/ul?place=ChIJVxBhppCdkTMRgtCDLQZ07IE&ll=16.40334370%2C120.38384920&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener">Waze</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">💬</div>
+                        <div>
+                            <h4>Messenger</h4>
+                            <p><a href="https://www.facebook.com/messages/t/616995538156566" target="_blank">Chat with us on Messenger</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📘</div>
+                        <div>
+                            <h4>Facebook Page</h4>
+                            <p><a href="https://www.facebook.com/MJRVGasStation/" target="_blank">MJRV Gas Station</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">🕐</div>
+                        <div>
+                            <h4>Operating Hours</h4>
+                            <p>Open 12 hours a day, 7 days a week — <em>Pudno nga agserbi.</em></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="juan@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" placeholder="How can we help you today?" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <span id="submitText">Send Message</span>
-                </button>
-            </form>
+                <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+                    <h3>Send a Message</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="juan@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="How can we help you today?" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span id="submitText">Send Message</span>
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1487,9 +1461,9 @@
                     <h4>Support</h4>
                     <ul>
                         <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
@@ -1701,7 +1675,6 @@
             let current = 0;
             const total = cards.length;
 
-            // Ensure the first active card is set (class already in HTML, but just in case)
             cards[0].classList.add('active');
 
             setInterval(() => {
